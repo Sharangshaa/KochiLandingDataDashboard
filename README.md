@@ -1,6 +1,6 @@
 **Shark Landing Data Dashboard – Kochi**
 
-A Shiny app presenting mock data on elasmobranch (shark) landings at Kochi, India.
+A Shiny app presenting data visualisation of mock data on elasmobranch (shark) landings at Kochi, India.
 
 **Overview**
 
