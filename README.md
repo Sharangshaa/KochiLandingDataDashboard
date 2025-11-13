@@ -1,19 +1,19 @@
-Shark Landing Data Dashboard – Kochi
+**Shark Landing Data Dashboard – Kochi**
 
 A Shiny app presenting mock data on elasmobranch (shark) landings at Kochi, India.
 
-Overview
+**Overview**
 
 This dashboard visualises and summarises species-level catch data for sharks landed at Kochi. The data were collected during 2021–2023, anonymised, randomised and noise-added for demonstration purposes.
 The app is built with R and Shiny, using interactive visualisations (via Plotly) to explore species composition, size-class distribution, sex ratios, and other landing metrics.
 
-Features
+**Features**
 
 Sidebar navigation to switch between views.
 
 Summary metrics (e.g., total individuals, species count, family count, sampling days).
 
-Visualisations such as:
+**Visualisations such as:**
 
 Number of species in each Red List category
 
@@ -25,7 +25,7 @@ Size-class distributions of the top 5 species
 
 A searchable table listing morphometrics of species present in the dataset.
 
-Data
+**Data**
 
 Period: 2021–2023
 
@@ -35,7 +35,7 @@ The dataset has been anonymised, randomised, and noise-added in order to protect
 
 The data should not be used for regulatory or scientific conclusions without validating with original raw data.
 
-Purpose & Scope
+**Purpose & Scope**
 
 Demonstrate how species-level catch/landing data for sharks can be visualised and summarised.
 
@@ -45,7 +45,7 @@ Provide an example of using R/Shiny + Plotly for interactive dashboard developme
 
 Note: Because this is mock/processed data, the patterns shown do not reflect actual fishery conditions.
 
-Installation & Deployment
+**Installation & Deployment**
 
 Clone or download this repository.
 
@@ -56,23 +56,19 @@ Install required packages (e.g., shiny, plotly, dplyr, DT, etc.)
 install.packages(c("shiny", "plotly", "dplyr", "DT", etc))
 
 
-Run the app locally:
+**Run the app locally:**
 
-library(shiny)
 runApp("path/to/app")
 
 
-To deploy, you can publish to shinyapps.io
- or host on your own Shiny server.
-
-File Structure
+**File Structure**
 /app/
   app.R      
   data/
     landing_data.csv   – processed mock landing data    
   README.md        – this file  
 
-Usage Instructions
+**Usage Instructions**
 
 Open the app; you will see summary metrics on the home page.
 
@@ -86,7 +82,7 @@ Hover over chart points to view details (thanks to Plotly interactivity).
 
 
 
-Credits & Acknowledgements
+**Credits & Acknowledgements**
 
 Data collected by Sharang (me) while working as Project Assistant at Wildlife Conservation Society India (WCS-India) during 2021–2023.
 
@@ -94,6 +90,6 @@ Visualisation and app framework built using R and Shiny.
 
 Thanks to the WCS-India team for guidance and support during data collection.
 
-Disclaimer
+**Disclaimer**
 
 The dataset has been anonymised, randomised, and noise-added to protect privacy and for demonstration purposes. The results should not be taken as definitive scientific or management advice.
