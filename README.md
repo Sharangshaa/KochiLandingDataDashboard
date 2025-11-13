@@ -1,4 +1,4 @@
-**Live app:**  https://sharangshaa.shinyapps.io/KochiLandingDataDashboard/
+**Live app:**  https://sharangshaa.shinyapps.io/KochiLandingDataDashboard/ (wait a couple of seconds to load the plots)
 
 **Shark Landing Data Dashboard – Kochi**
 
