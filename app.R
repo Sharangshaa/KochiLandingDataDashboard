@@ -19,30 +19,30 @@ library(ggplot2)
 
 
 
-##load data
+##load data----------------------
 df <- read.csv("Landing_data_mock.csv") %>%
   filter(sc_name != "Unknown")
-## overall count
+## overall count----------------------------
 Overall_count = df %>% 
   filter(sc_name != "Unknown") %>%
   group_by (c_name) %>%
   summarise (count = n(), .groups = 'rowwise') %>%
   arrange (desc(count))
 
-## family count
+## family count--------------------------------------------
 family_count = df %>%
   filter(sc_name != "Unknown") %>%
   group_by (Family) %>%
   summarise (count = n(), .groups = 'rowwise') %>%
   arrange (desc(count))
-##info box values
+##info box values----------------------------------------
 num_individuals <- sum(Overall_count$count)
 species_count <- length(unique(df$c_name))
 Family_count <- length(unique (df$Family))
 Total_sampling_days <- length(unique(df$dmy))
 
 
-##UI
+##UI-----------------------------------------------
 library(bs4Dash)
 ui <- dashboardPage(
   dashboardHeader(),
@@ -75,25 +75,25 @@ ui <- dashboardPage(
     
      tabItem(tabName = "dashboard",
     fluidRow(
-      # Total Individuals
+      # Total Individual----------------------------------------------------
       bs4InfoBox(title = "Total Individuals",
                  value = num_individuals,
                  icon = icon("fish"),
                  color = "primary",
                  width = 3), 
-      # Species Count
+      # Species Count-------------------------
        bs4InfoBox( title = "Species Count",
                   value = species_count,
                   icon = icon("dna"),
                   color = "info",
                   width = 3
-      ),  # Family Count
+      ),  # Family Count---------------------------
       bs4InfoBox( title = "Family Count",
                   value = Family_count,
                   icon = icon("sitemap"),
                   color = "success",
                   width = 3
-      ),  # Sampling Days
+      ),  # Sampling Days-------------------------------------
       bs4InfoBox(title = "Sampling Days",
                  value = Total_sampling_days,
                  icon = icon("calendar-alt"),
@@ -113,7 +113,7 @@ ui <- dashboardPage(
         
         plotlyOutput("redlist_plot")),
         
-        #plot for species count in each family
+        #plot for species count in each family-----------------------------------
       fluidRow(
       box(
           title = "No of species in each Family",
@@ -123,7 +123,7 @@ ui <- dashboardPage(
           
           plotlyOutput("Family_plot")),
      
-      #plot for sex ratio for top 5 species
+      #plot for sex ratio for top 5 species-------------------------------------
        fluidRow(
           box(
             title = "Sex ratios of top 5 species",
@@ -145,7 +145,7 @@ ui <- dashboardPage(
               plotlyOutput("sizeclass_plot",, height = "600px")),
           
           
-          #summarised table include family, species, common name, Avg TL and SD 
+          #summarised table include family, species, common name, Avg TL and SD ----------------------------------
            fluidRow( 
             tabBox(
               title = "Species List",
@@ -164,7 +164,7 @@ ui <- dashboardPage(
 
 
 server <- function(input, output, session) {
-  # Redlist species
+  # Redlist species pie chart------------------------------------------------------------------------------
   output$redlist_plot <- renderPlotly({
     
     species_redlist <- df %>%
@@ -196,7 +196,7 @@ server <- function(input, output, session) {
      config(displayModeBar = FALSE)
    
   })
-##Family count for Rays
+##Species in each family plot--------------------------------------------------------------------------
 output$Family_plot <- renderPlotly({
   
   family_distcount <- df %>%   
@@ -233,7 +233,7 @@ output$Family_plot <- renderPlotly({
 })
 
 
-##top 5 size plot
+##size distribution plot for top 5 species----------------------------------------------------------
 output$sizedata_plot <- renderPlotly({
   
   top5shark_sexdata_kochi <- df %>%
@@ -270,6 +270,7 @@ output$sizeclass_plot <- renderPlotly({
   )
 
 })
+  ## Data table--------------------------------------------------------------------------------------------------
 output$table_final <- renderDT({
   
   Avg_size_Shark <- df %>% filter(sc_name != "Unknown") %>%
@@ -291,6 +292,7 @@ output$table_final <- renderDT({
 
 
 }
+
 
 
 shinyApp(ui, server)
