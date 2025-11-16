@@ -64,11 +64,9 @@ runApp("path/to/app")
 
 
 **File Structure**
-/app/
-  app.R      
-  data/
-    landing_data.csv   – processed mock landing data    
-  README.md        – this file  
+app - app.R      
+data - landing_data.csv   – processed mock landing data    
+README.md        – this file  
 
 **Usage Instructions**
 
@@ -78,9 +76,7 @@ Use the sidebar to navigate through different tabs:
 
 Data Insight: Explore visualisations and tables.
 
-Use filters (if available) to focus on particular species/families.
-
-Hover over chart points to view details (thanks to Plotly interactivity).
+Hover over chart points to view details.
 
 
 
